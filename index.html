@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aashna Babu | Portfolio - Creative Developer & Designer</title>
+    <meta name="description"
+        content="Portfolio of a Creative Developer & Designer specializing in building high-end, premium web experiences.">
+    <!-- Google Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main Style -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Custom Cursor (Subtle micro-interaction) -->
+    <div class="custom-cursor"></div>
+
+    <!-- Background Decoration Gradient -->
+    <div class="bg-blur blur-1"></div>
+    <div class="bg-blur blur-2"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">AB<span>.</span></a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#certificates">Certificates</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2 class="reveal">Hello, I'm</h2>
+                <h1 class="reveal">Aashna Babu</h1>
+                <p class="reveal">Second-year B.Sc Computer Science Student. Passionate about C programming, database
+                    concepts, and crafting high-performance digital experiences.</p>
+                <div class="hero-btns reveal">
+                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span></span>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>I am a second-year B.Sc Computer Science student with foundational knowledge in C programming,
+                        database concepts, and computer fundamentals. I demonstrate strong analytical thinking and a
+                        consistent approach to learning.</p>
+                    <p>I am actively seeking opportunities to gain practical experience and further develop my technical
+                        and professional skills. I enjoy taking on new challenges and collaborating with diverse teams
+                        to build impactful solutions.</p>
+
+                    <div class="skills-mini">
+                        <h3>My Tech Stack</h3>
+                        <div class="skill-tags">
+                            <span>C Programming</span>
+                            <span>Python Programming</span>
+                            <span>Database Concepts</span>
+                            <span>Git</span>
+                            <span>Problem Solving</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="image-wrapper animated-wrapper">
+                        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJ4Z2YyZjR6Z2YyZjR6Z2YyZjR6Z2YyZjR6Z2YyZjR6Z2YyZjR6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/qgQUggAC3Pfv687qPC/giphy.gif"
+                            alt="Aashna Babu - Coding Illustration"
+                            style="background: transparent; border-radius: 20px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>Recent Projects</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="projects-grid">
+                <!-- Project 1: Happy Bites -->
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?q=80&w=800&auto=format&fit=crop"
+                            alt="Happy Bites Bakery">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <div class="project-links">
+                                    <a href="https://github.com/aashnababu/happy_bites" target="_blank"
+                                        rel="noopener noreferrer" title="View Source Code"><i
+                                            class="fa-brands fa-github"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Happy Bites</h3>
+                            <p>A bakery booking platform developed as a collaborative team project. Features product
+                                listings and basic booking logic.</p>
+                            <div class="project-tags">
+                                <span>HTML/CSS</span>
+                                <span>Git</span>
+                                <span>Web Design</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates" class="certificates" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Certificates</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="skills-mini">
+                <div class="skill-tags" style="justify-content: center; gap: 20px;">
+                    <span
+                        style="font-size: 1.1rem; padding: 15px 25px; display: flex; align-items: center; border-color: var(--accent-color);">
+                        <i class="fa-solid fa-certificate" style="margin-right: 12px; color: var(--accent-color);"></i>
+                        Python and MYSQL Fundamentals
+                    </span>
+                    <span
+                        style="font-size: 1.1rem; padding: 15px 25px; display: flex; align-items: center; border-color: var(--accent-color);">
+                        <i class="fa-solid fa-graduation-cap"
+                            style="margin-right: 12px; color: var(--accent-color);"></i> Gen AI Powered Data Analytics
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+    </div>
+    </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Let's Connect</h3>
+                    <p>I'm always open to discussing internship opportunities, creative collaborations, or just talking
+                        about tech.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fa-solid fa-envelope"></i>
+                            <span>aashnababu2@gmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fa-solid fa-phone"></i>
+                            <span>+91 9847137829</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>Thrissur, Kerala</span>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://github.com/aashnababu/happy_bites" target="_blank" rel="noopener noreferrer"
+                            title="My GitHub Profile"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                </div>
+
+                <form class="contact-form" action="mailto:aashnababu96@gmail.com" method="GET">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="_replyto" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message <i
+                            class="fa-solid fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Aashna Babu. Portfolio designed with premium aesthetics.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,148 @@
+document.addEventListener('DOMContentLoaded', () => {
+    // --- CUSTOM CURSOR ---
+    const cursor = document.querySelector('.custom-cursor');
+    const links = document.querySelectorAll('a, button, .project-card, input, textarea');
+
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+    });
+
+    links.forEach(link => {
+        link.addEventListener('mouseenter', () => {
+            cursor.classList.add('hover');
+        });
+        link.addEventListener('mouseleave', () => {
+            cursor.classList.remove('hover');
+        });
+    });
+
+    // --- STICKY NAVBAR & ACTIVE LINKS ---
+    const navbar = document.getElementById('navbar');
+    const sections = document.querySelectorAll('section');
+    const navItems = document.querySelectorAll('.nav-links a');
+
+    window.addEventListener('scroll', () => {
+        // Sticky logic
+        if (window.scrollY > 100) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+
+        // Active link highlighting
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (pageYOffset >= sectionTop - 150) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navItems.forEach(item => {
+            item.classList.remove('active');
+            if (item.getAttribute('href') === `#${current}`) {
+                item.classList.add('active');
+            }
+        });
+    });
+
+    // --- SCROLL REVEAL ANIMATION ---
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Apply reveal to elements
+    const revealElements = document.querySelectorAll('.hero-content > *, .section-title, .about-grid > *, .project-card, .contact-content > *');
+
+    // Add initial classes for animation
+    revealElements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1)';
+        revealObserver.observe(el);
+    });
+
+    // Handle the .revealed state in JS style or append a class
+    document.addEventListener('scroll', () => {
+        revealElements.forEach(el => {
+            if (el.classList.contains('revealed')) {
+                el.style.opacity = '1';
+                el.style.transform = 'translateY(0)';
+            }
+        });
+    });
+
+    // --- CONTACT FORM HANDLING ---
+    /* 
+       Simulation disabled for real Formspree integration. 
+       The form in index.html now points to Formspree for real email delivery.
+    */
+    /*
+    const contactForm = document.querySelector('.contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            // Subtle feedback for submission
+            const submitBtn = contactForm.querySelector('button');
+            const originalText = submitBtn.innerHTML;
+
+            submitBtn.innerHTML = 'Sending... <i class="fa-solid fa-spinner fa-spin"></i>';
+            submitBtn.disabled = true;
+
+            // Simulate API call
+            setTimeout(() => {
+                submitBtn.innerHTML = 'Message Sent! <i class="fa-solid fa-check"></i>';
+                submitBtn.style.background = '#00c853';
+                contactForm.reset();
+
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.style.background = '';
+                    submitBtn.disabled = false;
+                }, 3000);
+            }, 1500);
+        });
+    }
+    */
+
+    // --- MOBILE MENU TOGGLE ---
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (navToggle) {
+        navToggle.addEventListener('click', () => {
+            navToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+    }
+
+    // Close mobile menu on link click
+    navItems.forEach(item => {
+        item.addEventListener('click', () => {
+            navToggle.classList.remove('active');
+            navLinks.classList.remove('active');
+        });
+    });
+
+    // --- PARALLAX EFFECT FOR BACKGROUND BLURS ---
+    window.addEventListener('mousemove', (e) => {
+        const x = e.clientX / window.innerWidth;
+        const y = e.clientY / window.innerHeight;
+
+        document.querySelector('.blur-1').style.transform = `translate(${x * 50}px, ${y * 50}px)`;
+        document.querySelector('.blur-2').style.transform = `translate(${x * -50}px, ${y * -50}px)`;
+    });
+});
