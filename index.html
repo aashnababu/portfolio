@@ -197,6 +197,7 @@
                 </div>
 
                 <form class="contact-form" action="https://formsubmit.co/aashnababu96@gmail.com" method="POST">
+                    <input type="hidden" name="_captcha" value="false">
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" id="name" name="name" placeholder="Your Name" required>
@@ -223,6 +224,19 @@
             </p>
         </div>
     </footer>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-icon">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <h2>Successfully Sent!</h2>
+            <p>Thank you for reaching out. I'll get back to you as soon as possible.</p>
+            <button class="btn btn-primary" id="closeModalBtn">Great!</button>
+        </div>
+    </div>
 
     <!-- Scripts -->
     <script src="script.js"></script>

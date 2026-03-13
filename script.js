@@ -85,38 +85,66 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --- CONTACT FORM HANDLING ---
-    /* 
-       Simulation disabled for real Formspree integration. 
-       The form in index.html now points to Formspree for real email delivery.
-    */
-    /*
     const contactForm = document.querySelector('.contact-form');
+    const successModal = document.getElementById('successModal');
+    const closeModalElements = document.querySelectorAll('.close-modal, #closeModalBtn');
+
     if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
+        contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
 
-            // Subtle feedback for submission
             const submitBtn = contactForm.querySelector('button');
             const originalText = submitBtn.innerHTML;
 
+            // Start loading state
             submitBtn.innerHTML = 'Sending... <i class="fa-solid fa-spinner fa-spin"></i>';
             submitBtn.disabled = true;
+            contactForm.classList.add('form-submitting');
 
-            // Simulate API call
-            setTimeout(() => {
-                submitBtn.innerHTML = 'Message Sent! <i class="fa-solid fa-check"></i>';
-                submitBtn.style.background = '#00c853';
-                contactForm.reset();
+            try {
+                const formData = new FormData(contactForm);
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
 
-                setTimeout(() => {
-                    submitBtn.innerHTML = originalText;
-                    submitBtn.style.background = '';
-                    submitBtn.disabled = false;
-                }, 3000);
-            }, 1500);
+                if (response.ok) {
+                    // Success
+                    successModal.classList.add('active');
+                    contactForm.reset();
+                } else {
+                    // Error response
+                    const data = await response.json();
+                    alert(data.errors ? data.errors.map(error => error.message).join(", ") : "Oops! There was a problem submitting your form");
+                }
+            } catch (error) {
+                // Network error
+                alert("Oops! There was a problem submitting your form. Please check your connection.");
+            } finally {
+                // Restore button state
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                contactForm.classList.remove('form-submitting');
+            }
         });
     }
-    */
+
+    // Modal close logic
+    closeModalElements.forEach(el => {
+        el.addEventListener('click', () => {
+            successModal.classList.remove('active');
+        });
+    });
+
+    // Close modal on outside click
+    window.addEventListener('click', (e) => {
+        if (e.target === successModal) {
+            successModal.classList.remove('active');
+        }
+    });
 
     // --- MOBILE MENU TOGGLE ---
     const navToggle = document.getElementById('navToggle');
